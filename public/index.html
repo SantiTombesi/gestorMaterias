@@ -1,0 +1,45 @@
+<html ng-app='MateriasApp'>
+<head>
+
+  <!-- SCROLLS -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"><!-- load bootstrap -->
+<style>
+    html                    { overflow-y:scroll; }
+    body                    { padding-top:50px; }
+    #materia-list              { margin-bottom:30px; }
+</style>
+<!-- SPELLS -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+  <script src="/public/materiacontroller.js"> </script>
+
+</head>
+<body ng-controller='materiasController'>
+
+  <ul>
+    <li ng-repeat='materia in materias'>
+      <span>{{ materia.titulo }}</span>
+      <p>{{ materia.descripcion }}</p>
+      <p>fin listado</p>
+    </li>
+  </ul>
+
+
+  <div id="materia-form" class="row">
+      <div class="col-sm-8 col-sm-offset-2 text-center">
+          <form>
+              <div class="form-group">
+
+                  <!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
+                  <input type="text" class="form-control input-lg text-center" placeholder="Ingrese titulo" ng-model="formData.titulo">
+                  <input type="text" class="form-control input-lg text-center" placeholder="Ingresa descripcion" ng-model="formData.descripcion">
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-lg" ng-click="crearMateria()">Agregar</button>
+          </form>
+      </div>
+  </div>
+
+</body>
+</html>
